@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
+<!-- 2019-03-20T20:34:13 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="pessoas" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e2f0e11c-23d2-4656-8b49-bdedb97a261b">
+	<property name="com.jaspersoft.studio.data.sql.tables" value="amFzcGVycmVwb3J0cy5wZXNzb2EgLDE1LDE1LDdlMmRiYmYyLWZkZDItNDE3ZC1iODFhLTQ0YzRm&#xA;MDk5ODgwZTs="/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Novo Data Adapter"/>
+	<parameter name="ImprimirInativos" class="java.lang.Boolean">
+		<parameterDescription><![CDATA[ImprimirI inativos]]></parameterDescription>
+		<defaultValueExpression><![CDATA[false]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT * FROM jasperreports.pessoa]]>
+	</queryString>
+	<field name="codigo" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idade" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomeMae" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomePai" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="classeSocial" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="rendaFamiliar" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nascimento" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ativo" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="nome1" class="java.lang.Integer" calculation="DistinctCount">
+		<variableExpression><![CDATA[$F{nome}]]></variableExpression>
+	</variable>
+	<variable name="TotalIdades" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{idade}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="80" splitType="Stretch">
+			<staticText>
+				<reportElement x="50" y="19" width="480" height="30" uuid="eaecacd2-42fa-487d-b027-51d2668492ac"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pessoas Cadastradas]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="420" y="50" width="100" height="30" uuid="ce979b60-2bbb-45aa-a933-739a5c2cd210"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="70" splitType="Stretch">
+			<printWhenExpression><![CDATA[$F{ativo} == false && $P{ImprimirInativos} == true]]></printWhenExpression>
+			<staticText>
+				<reportElement x="10" y="40" width="50" height="22" uuid="3348b601-b473-4e1c-8dce-8caf75a10bef"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="39" width="100" height="22" uuid="e58e3a50-c702-4d04-8f28-21193e29ada6"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="40" width="40" height="24" uuid="28993c9e-4b06-40ad-ad23-1a06ecd007f9"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[idade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="40" width="70" height="24" uuid="692e2ac0-a54c-4560-873e-86536b69c90c"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[nascimento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="490" y="40" width="40" height="24" uuid="b38de84a-5e38-4485-9f9a-c4af684597bc"/>
+				<textElement>
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ativo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="60" y="-1" width="100" height="20" uuid="de413d09-0193-4870-bff9-fcdb0c0c8b8e"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="-1" width="50" height="20" uuid="937268b3-8c92-499c-a319-90234a123fb1"/>
+				<textFieldExpression><![CDATA[$F{codigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="0" width="40" height="30" uuid="f55ec980-35e5-409d-8991-c5cb2e0f7401"/>
+				<textFieldExpression><![CDATA[$F{idade}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="420" y="0" width="70" height="30" uuid="0e9a5c95-c38e-4f56-9cc4-ef461a870862"/>
+				<textFieldExpression><![CDATA[$F{nascimento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="490" y="0" width="40" height="30" uuid="0f3bf60c-6937-4691-8c17-044314a6abfe"/>
+				<textFieldExpression><![CDATA[$F{ativo} == true ? "Sim" : "Não"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="55" splitType="Stretch">
+			<textField>
+				<reportElement x="230" y="12" width="170" height="30" uuid="2ba303fc-5939-4c3c-aea6-f6f08fd4c460"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="410" y="12" width="162" height="30" uuid="dc8d8b27-43bc-4f5b-9d16-eb1582077126"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="47" splitType="Stretch">
+			<staticText>
+				<reportElement x="380" y="13" width="138" height="30" uuid="ebdb587d-0dc1-4ca1-b3a4-6d59147a6ef2"/>
+				<text><![CDATA[Total de Idades Listadas:]]></text>
+			</staticText>
+			<textField pattern="#,#00.###;(#,#00.###-)">
+				<reportElement x="500" y="10" width="72" height="30" uuid="e5ad1a79-79bc-4aba-ba93-775576105203"/>
+				<textFieldExpression><![CDATA[$V{TotalIdades}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
